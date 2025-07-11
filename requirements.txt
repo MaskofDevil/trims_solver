@@ -1,0 +1,4 @@
+python-constraint
+pysat
+numpy
+matplotlib
