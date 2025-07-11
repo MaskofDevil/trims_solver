@@ -1,113 +1,112 @@
-# Minesweeper Solvers & Benchmarking Framework
+# Tri-Phase Reasoning Intelligence for Minesweeper Solving (**TRIMS**)
 
-> A modular, extensible, and research-oriented framework for evaluating classical and novel Minesweeper AI solvers — featuring a new solver: **New**, designed with ...
+A modular, extensible, and research-oriented framework for novel Minesweeper AI solver named **TRIMS**.
 
 ---
 
 ## 🧠 Key Features
 
-- 🧩 **Multiple Solver Strategies**:
-  - Constraint Satisfaction Problem (CSP)
-  - SAT-Based Reasoning
-  - Probabilistic Analytical Fast Guess (PAFG)
-  - Loreido Heuristics
-  - Pedersen's Statistical Estimator
-  - **[NEW]**
+- Introduces a novel approach for minesweeper solving **TRIMS (This Paper)**
 
-- 📊 **Benchmarking System**:
-  - 
+- **10,000** trials for beginner, intermediate and hard difficulties of minesweeper board configurations
 
-- ⚙️ **Designed for Researchers**:
-  - 
+- **Designed for Researchers**:
+  - Modular codebase for easy extension and experimentation
+  - Jupyter notebooks for rapid prototyping and visualization
 
 ---
 
-## 🧪 Novel Contribution: New Solver+
+## 🧪 Novel Contribution: TRIMS Solver
 
-**NEW** (New Solver) combines:
+**TRIMS** combines:
 
-- 
+- Fast deterministic constraint propagation
+- Probabilistic reasoning for uncertain moves
+- Emergency heuristics for deadlock situations
 
-> Designed for ...
+Designed for robust, high-performance Minesweeper solving and benchmarking.
 
 ---
 
 ## 🛠️ Installation
 
-```bash
-git clone https://github.com/yourusername/minesweeper-solvers.git
-cd minesweeper-solvers
-make
-````
+Clone the repository and install dependencies:
 
-> Requires: `gcc`, `make`, and optionally `minisat` or any compatible SAT solver.
+```bash
+git clone https://github.com/MaskofDevil/trims_solver.git
+cd trims_solver
+pip install -r requirements.txt
+```
+
+> Requires: Python 3.8+ and `pip`.
 
 ---
 
 ## 🚀 Usage
 
-Run the benchmarking tool with default configuration:
+Open `trims.ipynb` in Jupyter Notebook or VS Code and run all cells to run TRIMS and visualize results against other SOTA solvers.
 
-```bash
-./benchmark -n 1000 -s SAT-APGTS+ -b expert
+---
+
+## 📦 Requirements
+
+All required Python packages are listed in `requirements.txt`:
+
+```
+numpy
+matplotlib
+python-constraint
+pysat
 ```
 
-Run a single game visually:
+Install with:
 
 ```bash
-./play -s PAFG -b intermediate
-```
-
-Available solvers:
-
-```bash
-./benchmark --list-solvers
+pip install -r requirements.txt
 ```
 
 ---
 
 ## 📊 Sample Benchmark Results
 
-| Solver         | Win Rate (%) | Guess Rate (%) | Coverage (%) |
-| -------------- | ------------ | -------------- | ------------ |
-| A           | 62.3         | 18.9           | 93.1         |
-| B           | 64.7         | 16.5           | 94.4         |
-| C           | 61.5         | 21.2           | 92.3         |
-| D           | 66.0         | 15.1           | 95.1         |
-| **New**     | **70.5**     | **13.3**       | **96.7**     |
+| Solver               | Beginner | Intermediate | Expert |
+|----------------------|----------|--------------|--------|
+| TRIMS (This Paper)   | 99.0%    | 94.4%        | 73.1%  |
+| PAFG                 | 96.4%    | 86.3%        | 45.6%  |
+| PSEQ-D256            | 81.8%    | 78.2%        | 40.1%  |
+| PSEQ                 | 81.6%    | 78.1%        | 39.6%  |
+| OH                   | 80.2%    | 74.4%        | 38.7%  |
+| cSimEnuLoClf         | 80.0%    | 75.6%        | 37.5%  |
+| CSP                  | 80.0%    | 44.3%        | 33.9%  |
+| CSCSP                | —        | 75.9%        | 32.9%  |
+| Pedersen             | 92.5%    | 67.7%        | 25.0%  |
 
-> Benchmarked on 1000 runs of Expert board (16×30, 99 mines).
+> Benchmarked on Beginner (9×9, 10 mines), Intermediate (16×16, 40 mines), and Expert (16×30, 99 mines) boards.
+
+![alt text](/Img/output.png)
 
 ---
 
 ## 📂 File Structure
 
 ```
-minesweeper/
-├── tests/                    # Test results
-│   ├── T1.md                 # Result 1
-│   ├── T2.md                 # Result 2
-│   ├── ...
-├── solvers.ipynb             # Solvers notebook (main)
-├── test.py                   # Compilation of all solvers
+trims_solver/
+├── Fonts/                    # Custom Fonts
+│   ├── lmroman10-bold.otf
+│   ├── lmroman10-italic.otf
+│   ├── lmroman10-regular.otf
+├── Img/                      # Images
+│   ├── lmroman10-bold.otf
+├── trims.ipynb               # TRIMS solver and benchmarking
 ├── requirements.txt
+├── README.md
 ```
 
 ---
 
-## 📝 Citing This Work
+## 📝 Using This Work
 
-If you use this framework or this solver in your research, please cite:
-
-```bibtex
-@misc{yourlastname2025minesweeper,
-  title={title},
-  author={Tuhin Dhar},
-  year={2025},
-  howpublished={GitHub repository},
-  note={\url{...}}
-}
-```
+If you use this framework or this solver in your research or anywhere, please give proper reference.
 
 ---
 
@@ -115,17 +114,10 @@ If you use this framework or this solver in your research, please cite:
 
 * [Richard Kaye: Minesweeper is NP-complete](https://web.mat.bham.ac.uk/R.W.Kaye/minesw/ordmsw.pdf)
 * [Loreido Heuristics](https://web.archive.org/web/20060309074150/http://web.mit.edu/sp.268/www/minesweeper.pdf)
-* SAT-based symbolic model counting papers (refer to paper bibliography)
 
 ---
 
 ## 📬 Contact
 
 For academic inquiries or collaboration: **[tuhindhar014@gmail.com](mailto:tuhindhar014@gmail.com)**
-
----
-
-## 🛡️ License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
 
